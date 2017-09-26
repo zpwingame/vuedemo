@@ -20,7 +20,12 @@
     "koa": "^2.2.0",
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
-    "koa-views": "^5.2.1"
+    "koa-views": "^5.2.1",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^2.0.1",
+    "koa-onerror": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -66,11 +71,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.31",
     "karma-webpack": "^2.0.2",
-    "koa-bodyparser": "^3.2.0",
-    "koa-convert": "^1.2.0",
-    "koa-json": "^2.0.2",
-    "koa-logger": "^2.0.1",
-    "koa-onerror": "^1.2.1",
     "mocha": "^3.2.0",
     "nightwatch": "^0.9.12",
     "node-sass": "^4.5.3",
