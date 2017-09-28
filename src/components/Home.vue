@@ -1,111 +1,143 @@
-<template>
-    <div class="main">
-        <div class="header">
-            <div class="wrap">
-                <h1 class="logo">
-                    <a hidefocus="true" href="/#">网易云音乐</a>
-                </h1>
-                <ul class="m-nav j-tflag">
-                    <li class="fst">
-                        <span>
-                            <a hidefocus="true" href="/#" data-module="discover" class="z-slt">
-                                <em>发现音乐</em>
-                                <sub class="cor">&nbsp;</sub>
-                            </a>
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            <a data-action="bilog" data-log-action="page" data-log-json="{&quot;type&quot;:&quot;my&quot;}" hidefocus="true" href="/my/" data-module="my">
-                                <em>我的音乐</em>
-                                <sub class="cor">&nbsp;</sub>
-                            </a>
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            <a hidefocus="true" href="/friend" data-module="friend">
-                                <em>朋友</em>
-                                <sub class="cor">&nbsp;</sub>
-                                <i class="dot j-t" style="display:none;"></i>
-                            </a>
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            <a hidefocus="true" href="/store/product" target="_blank" data-module="store">
-                                <em>商城</em>
-                            </a>
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            <a hidefocus="true" href="/nmusician/web/recruit" target="_blank" data-module="musician">
-                                <em>音乐人</em>
-                            </a>
-                        </span>
-                    </li>
-                    <li class="lst">
-                        <span>
-                            <a id="topbar-download-link" data-action="bilog" data-log-action="page" data-log-json="{&quot;type&quot;:&quot;downloadapp&quot;,&quot;source&quot;:&quot;tab&quot;}" hidefocus="true" href="/download" data-module="download">
-                                <em>下载客户端</em>
-                                <sub class="cor">&nbsp;</sub>
-                            </a>
-                        </span>
-                        <sup class="hot">&nbsp;</sup>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</template>
-<script>
-export default {
-
-}
-</script>
 <style lang='scss' scoped>
-.header {
-    position: relative;
-    z-index: 1000;
-    height: 70px;
-    box-sizing: border-box;
-    background: #242424;
-    border-bottom: 1px solid #000;
-    .wrap {
-        width: 1100px;
-        margin: 0 auto;
-        .logo {
-            float: left;
+.main {
+    .icon-list {
+        background: #fff;
+        font-size: 0;
+        padding: 10px 0;
+        .icon {
+            font-size: 16px;
+            display: inline-block;
+            width: 20%;
+            border-radius: 10px;
             a {
-                float: left;
-                width: 157px;
-                height: 100%;
-                padding-right: 20px;
-                text-indent: -9999px;
+                text-decoration: none;
+            }
+            .circle {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                display: block;
+                border-radius: 25px;
+                background: #00ae66;
+                color: #fff;
+                margin: auto;
+            }
+            .name {
+                color: #333;
             }
         }
-        .m-nav {
-            float: left;
-            li {
-                position: relative;
-                background-position: right -300px;
-                float: left;
-                height: 70px;
-                font-size: 14px;
-                span {
-                    float: left;
-                    height: 70px;
-                    font-size: 14px;
+    }
+    .list-wrapper {
+        margin: 10px 0;
+        background: #fff;
+        min-height: 80vh;
+        .list {
+            border-top: 1px solid #DDD8CE;
+            padding: 20px 0;
+            overflow: hidden;
+            list-style: none;
+            display: flex;
+
+            .dealcard-img {
+                width: 100px;
+                height: 100px;
+                padding: 0 10px;
+                flex: 0 1 100px;
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
-            a {
-                padding: 0 19px;
-                text-align: center;
-                line-height: 70px;
-                color: #ccc;
+            .item-info {
+                flex: 0 1 auto;
+                text-align: left;
+                font-size: 14px;
             }
+        }
+        .list:last-of-type {
+            border-bottom: 1px solid #DDD8CE;
         }
     }
 }
 </style>
+
+<template>
+    <div class='main'>
+        <ul class='icon-list'>
+            <li class='icon' v-for='item in sites'>
+                <a :href='item.url'>
+                    <span class='circle'>☆
+                    </span>
+                    <span class='name'>{{item.name}}</span>
+                </a>
+            </li>
+        </ul>
+        <ul class='list-wrapper'>
+            <li class='list' v-for='dish in dishList'>
+                <div class='dealcard-img'>
+                    <img :src="dish.imgUrl" alt=""></div>
+                <div class='item-info'>
+                    <div>{{dish.name}}</div>
+                    <div>{{dish.detail}}</div>
+                    <div>{{dish.price}}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+<script>
+export default {
+    data: function() {
+        return {
+            sites: [
+                {
+                    name: 'vue',
+                    url: '/vue',
+                },
+                {
+                    name: 'react',
+                    url: '/react',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www.baidu.com',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www.baidu.com',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www.baidu.com',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www.baidu.com',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www/baidu.com',
+                },
+                {
+                    name: '百度',
+                    url: 'http://www/baidu.com',
+                },
+            ],
+            dishList: [
+                {
+                    imgUrl: 'http://p1.meituan.net/200.0/deal/aa9de12e68c2b663e8a58a177758882b2199839.jpg',
+                    name: '和府捞面',
+                    detail: '[人民广场/南京路]晚市周末通用自助',
+                    price: '58元'
+                },
+                {
+                    imgUrl: 'http://p1.meituan.net/200.0/deal/aa9de12e68c2b663e8a58a177758882b2199839.jpg',
+                    name: '和府捞面',
+                    detail: '[人民广场/南京路]晚市周末通用自助',
+                    price: '58元'
+                },
+            ]
+        }
+    }
+}
+</script>
